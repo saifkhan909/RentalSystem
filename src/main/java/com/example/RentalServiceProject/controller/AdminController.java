@@ -1,9 +1,8 @@
 package com.example.RentalServiceProject.controller;
 
-import com.example.RentalServiceProject.dto.AssetBookingDto;
 import com.example.RentalServiceProject.dto.AssetDto;
+import com.example.RentalServiceProject.model.Asset;
 import com.example.RentalServiceProject.service.AdminService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,16 +10,22 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-@RequestMapping("/admin")
+@RequestMapping("/api/admin")
 @RestController
 public class AdminController {
-    @Autowired
-    AdminService adminService;
 
-    @PostMapping("/asset/{id}")
-    public ResponseEntity<Void> publishAsset(@PathVariable Long id){
-        adminService.publishAsset(id);
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+
+    private final AdminService adminService;
+
+    AdminController(AdminService adminService1){
+        this.adminService = adminService1;
+
+    }
+
+    @PatchMapping("/asset/publish/{id}")
+    public ResponseEntity<Asset> publishAsset(@PathVariable Long id){
+        return ResponseEntity.ok(adminService.publishAsset(id));
+
     }
 
     @GetMapping("/asset")

@@ -1,12 +1,14 @@
 package com.example.RentalServiceProject.controller;
 
 import com.example.RentalServiceProject.dto.AssetDto;
+import com.example.RentalServiceProject.dto.SearchCriteria;
 import com.example.RentalServiceProject.dto.UserDto;
 import com.example.RentalServiceProject.model.User;
 import com.example.RentalServiceProject.service.AssetService;
 import com.example.RentalServiceProject.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -18,8 +20,10 @@ import java.util.Optional;
 @RequestMapping("/api")
 @RestController
 public class AssetController {
+
     @Autowired
     AssetService assetService;
+
     @PostMapping("/asset")
     public ResponseEntity<AssetDto> addAsset(@RequestBody AssetDto assetDto){
         return ResponseEntity.of(Optional.of(assetService.addAsset(assetDto)));
@@ -32,13 +36,18 @@ public class AssetController {
 
     @GetMapping("/asset/{id}")
     public ResponseEntity<AssetDto> getAssetById(@PathVariable Long id){
-        return ResponseEntity.of(Optional.of(assetService.getAssetById(id)));
+        return ResponseEntity.ok(assetService.getAssetById(id));
     }
 
     @DeleteMapping("/asset/{id}")
     public ResponseEntity<Void> deleteById(@PathVariable Long id){
         assetService.deleteById(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
+
+    @GetMapping("/asset/search")
+    public ResponseEntity<List<AssetDto>> search(@RequestBody SearchCriteria search){
+      return ResponseEntity.ok(assetService.search(search));
     }
 
     @PutMapping("/asset")

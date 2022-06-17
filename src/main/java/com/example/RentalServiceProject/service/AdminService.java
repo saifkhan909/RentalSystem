@@ -35,11 +35,12 @@ public class AdminService {
                 .build();
     }
 
-    public void publishAsset(Long id) {
+    public Asset publishAsset(Long id) {
         Optional<Asset> asset = assetRepo.findById(id);
         if(asset.isPresent()){
             asset.get().setStatus("published");
-            assetRepo.save(asset.get());
+             return  assetRepo.save(asset.get());
         }
+        return null;
     }
 }

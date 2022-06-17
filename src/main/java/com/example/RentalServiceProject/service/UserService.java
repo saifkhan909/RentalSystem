@@ -3,8 +3,6 @@ package com.example.RentalServiceProject.service;
 import com.example.RentalServiceProject.dto.UserDto;
 import com.example.RentalServiceProject.model.User;
 import com.example.RentalServiceProject.repo.UserRepo;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -13,8 +11,14 @@ import java.util.Optional;
 
 @Service
 public class UserService {
-    @Autowired
-    UserRepo userRepo;
+
+    private final UserRepo userRepo;
+
+    public UserService(UserRepo userRepo) {
+        this.userRepo = userRepo;
+    }
+
+
     public  UserDto addUser(UserDto userDto) {
         return toDTO(userRepo.save(toDO(userDto)));
     }

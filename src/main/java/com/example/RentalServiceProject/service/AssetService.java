@@ -1,8 +1,10 @@
 package com.example.RentalServiceProject.service;
 
 import com.example.RentalServiceProject.dto.AssetDto;
+import com.example.RentalServiceProject.dto.SearchCriteria;
 import com.example.RentalServiceProject.model.Asset;
 import com.example.RentalServiceProject.repo.AssetRepo;
+import com.example.RentalServiceProject.repo.specification.AssetSpecification;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,6 +12,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class AssetService {
@@ -51,9 +54,9 @@ public class AssetService {
     }
 
     public AssetDto getAssetById(Long id) {
-        Asset asset = assetRepo.findByAssetIdAndStatus(id, "published");
-        if(asset!=null){
-            return toDto(asset);
+        Optional<Asset> asset = assetRepo.findByAssetIdAndStatus(id, "published");
+        if(asset.isPresent()){
+            return toDto(asset.get());
         }
         return null;
     }
@@ -64,5 +67,14 @@ public class AssetService {
 
     public void updateAsset(AssetDto assetDto) {
         assetRepo.save(toDo(assetDto));
+    }
+
+    public List<AssetDto> search(SearchCriteria search) {
+        AssetSpecification as = new AssetSpecification(search);
+        List<Asset> assetList = assetRepo.findAll(as);
+        return  assetList.stream()
+                .map(a->toDto(a))
+                .collect(Collectors.toList());
+
     }
 }
