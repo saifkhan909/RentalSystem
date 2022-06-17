@@ -24,7 +24,7 @@ public class AdminController {
     }
 
     @GetMapping("/asset")
-    public ResponseEntity<List<AssetDto>> getAllUnpublishedAssets(){
+    public ResponseEntity<List<AssetDto>> getAllInreviewAssets(){
         return ResponseEntity.of(Optional.of(adminService.getAllInreviewAssets()));
     }
 }

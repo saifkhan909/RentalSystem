@@ -51,9 +51,9 @@ public class AssetService {
     }
 
     public AssetDto getAssetById(Long id) {
-        Optional<Asset> asset = assetRepo.findByAssetIdAndStatus(id, "published");
-        if(asset.isPresent()){
-            return toDto(asset.get());
+        Asset asset = assetRepo.findByAssetIdAndStatus(id, "published");
+        if(asset!=null){
+            return toDto(asset);
         }
         return null;
     }

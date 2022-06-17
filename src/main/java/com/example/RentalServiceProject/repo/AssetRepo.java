@@ -13,5 +13,5 @@ import java.util.Optional;
 public interface AssetRepo extends JpaRepository<Asset, Long> {
 
     public List<Asset> findByStatus(String type);
-    public Optional<Asset> findByAssetIdAndStatus(Long id, String type);
+    public Asset findByAssetIdAndStatus(Long id, String type);
 }
