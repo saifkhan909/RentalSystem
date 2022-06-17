@@ -1,0 +1,249 @@
+{
+	"info": {
+		"_postman_id": "b9d1360e-d700-4ba9-a842-94f530e59744",
+		"name": "rentalcollections",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "userAdd",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"ali\",\r\n    \"number\": \"03332537021\",\r\n    \"email\": \"ali11999@gmail.com\",\r\n    \"gender\": \"male\",\r\n    \"type\": \"seller\",\r\n    \"accountNumber\": \"08219728365\",\r\n    \"cinic\": \"077673992112\",\r\n    \"address\": \"shad-bagh\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllUser",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"ali\",\r\n    \"number\": \"03332537021\",\r\n    \"email\": \"ali11999@gmail.com\",\r\n    \"gender\": \"male\",\r\n    \"type\": \"seller\",\r\n    \"accountNumber\": \"08219728365\",\r\n    \"cinic\": \"077673992112\",\r\n    \"address\": \"shad-bagh\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delUserById",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"ali\",\r\n    \"number\": \"03332537021\",\r\n    \"email\": \"ali11999@gmail.com\",\r\n    \"gender\": \"male\",\r\n    \"type\": \"seller\",\r\n    \"accountNumber\": \"08219728365\",\r\n    \"cinic\": \"077673992112\",\r\n    \"address\": \"shad-bagh\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/user/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "putUserById",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"ali\",\r\n    \"number\": \"03332537022\",\r\n    \"email\": \"ali11999@gmail.com\",\r\n    \"gender\": \"male\",\r\n    \"type\": \"seller\",\r\n    \"accountNumber\": \"08219728365\",\r\n    \"cinic\": \"077673992112\",\r\n    \"address\": \"shad-bagh\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "assetAdd",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{  \r\n    \"assetName\":\"house\",\r\n    \"pricePerHour\": 400,\r\n    \"location\": \"gulshan\",\r\n    \"type\": \"house\",\r\n    \"user\": {\r\n        \"id\": 1\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/asset",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"asset"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAssetById",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{  \r\n    \"assetName\":\"house\",\r\n    \"pricePerHour\": 400,\r\n    \"location\": \"gulshan\",\r\n    \"type\": \"house\",\r\n    \"user\": {\r\n        \"id\": 1\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/asset",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"asset"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteAssetById",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{  \r\n    \"assetName\":\"house\",\r\n    \"pricePerHour\": 400,\r\n    \"location\": \"gulshan\",\r\n    \"type\": \"house\",\r\n    \"user\": {\r\n        \"id\": 1\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/asset/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"asset",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateAsset",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{   \"assetId\": 2,\r\n    \"assetName\":\"house\",\r\n    \"pricePerHour\": 370,\r\n    \"location\": \"johar\",\r\n    \"type\": \"house\",\r\n    \"user\": {\r\n        \"id\": 2\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/asset",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"asset"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
