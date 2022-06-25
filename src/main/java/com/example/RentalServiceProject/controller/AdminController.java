@@ -2,6 +2,7 @@ package com.example.RentalServiceProject.controller;
 
 import com.example.RentalServiceProject.dto.AssetBookingDto;
 import com.example.RentalServiceProject.dto.AssetDto;
+import com.example.RentalServiceProject.dto.AssetReviewDto;
 import com.example.RentalServiceProject.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,6 +26,18 @@ public class AdminController {
 
     @GetMapping("/asset")
     public ResponseEntity<List<AssetDto>> getAllInreviewAssets(){
-        return ResponseEntity.of(Optional.of(adminService.getAllInreviewAssets()));
+        return ResponseEntity.ok(adminService.getAllInreviewAssets());
+    }
+
+    @GetMapping("/assetReview")
+    public ResponseEntity<List<AssetReviewDto>> getAllInreviewOfAssetsReview(){
+        return ResponseEntity.ok(adminService.getAllInreviewOfAssetsReview());
+    }
+
+    @PatchMapping("/assetReview/{id}")
+    public ResponseEntity<Void> publishAssetReview(@PathVariable Long id){
+        adminService.publishAssetReview(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 }
+

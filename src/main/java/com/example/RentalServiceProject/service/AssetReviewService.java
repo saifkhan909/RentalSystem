@@ -27,7 +27,7 @@ public class AssetReviewService {
                         .id(assetReviewDto.getId())
                         .rating(assetReviewDto.getRating())
                         .review(assetReviewDto.getReview())
-                        .status(assetReviewDto.getStatus())
+                        .status("inreview")
                         .user(assetReviewDto.getUser())
                         .asset(assetReviewDto.getAsset())
                         .build();
@@ -38,7 +38,6 @@ public class AssetReviewService {
                 .id(assetReview.getId())
                 .rating(assetReview.getRating())
                 .review(assetReview.getReview())
-                .status("uncheck")
                 .user(assetReview.getUser())
                 .asset(assetReview.getAsset())
                 .build();

@@ -1,11 +1,14 @@
 package com.example.RentalServiceProject.controller;
 
 import com.example.RentalServiceProject.dto.AssetDto;
+import com.example.RentalServiceProject.dto.SearchCriteria;
 import com.example.RentalServiceProject.dto.UserDto;
 import com.example.RentalServiceProject.model.User;
 import com.example.RentalServiceProject.service.AssetService;
 import com.example.RentalServiceProject.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -32,7 +35,12 @@ public class AssetController {
 
     @GetMapping("/asset/{id}")
     public ResponseEntity<AssetDto> getAssetById(@PathVariable Long id){
-        return ResponseEntity.of(Optional.of(assetService.getAssetById(id)));
+        return ResponseEntity.ok(assetService.getAssetById(id));
+    }
+
+    @GetMapping("/asset/search")
+    public ResponseEntity<List<AssetDto>> search(@RequestBody SearchCriteria search){
+        return ResponseEntity.ok(assetService.search(search));
     }
 
     @DeleteMapping("/asset/{id}")
