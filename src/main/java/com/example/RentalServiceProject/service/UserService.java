@@ -1,5 +1,6 @@
 package com.example.RentalServiceProject.service;
 
+import com.example.RentalServiceProject.Configuration.exception.UserNotFoundException;
 import com.example.RentalServiceProject.dto.UserDto;
 import com.example.RentalServiceProject.model.User;
 import com.example.RentalServiceProject.repo.UserRepo;
@@ -60,7 +61,7 @@ public class UserService {
         if(user.isPresent()){
             return toDTO(user.get());
         }
-        return  null;
+        throw new UserNotFoundException("user is not present on the id "+id);
     }
 
     public void deleteById(Long id) {
